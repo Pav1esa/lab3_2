@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Павлеса Олег ПП-21</title>
+</head>	
+<body>
+    <script>
+        "use strict";
+
+        // Введіть вашу дату народження
+        const birthdayMonth = 8; 
+        const birthdayDate = 9;  
+        const today = new Date();
+        
+        // Визначаємо наступну дату народження
+        let nextBirthday = new Date(today.getFullYear(), birthdayMonth, birthdayDate);
+        if (nextBirthday < today) {
+            nextBirthday.setFullYear(today.getFullYear() + 1);
+        }
+
+        // Розрахунок часу до наступного дня народження
+        const day = 86400000;
+        const hour = 3600000; 
+        const minute = 60000;
+        
+        let timeUntilBirthday = nextBirthday.getTime() - today.getTime(); 
+        let days = Math.floor(timeUntilBirthday / day);
+        let hours = Math.floor((timeUntilBirthday - (days * day)) / hour);
+        let minutes = Math.floor((timeUntilBirthday - (days * day) - (hours * hour)) / minute);
+        
+        let str = days + " днів, " + hours + " годин, " + minutes + " хвилин.";
+        console.log("До наступного дня народження залишилося: ", str);
+        alert("До наступного дня народження залишилося: " + str);
+    </script>
+</body>
+</html>
